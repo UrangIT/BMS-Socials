@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Eateries, Pubs & Wine Farms Lookup</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            cursor: default; /* Normal pointer */
+        }
+
+        .phone {
+            background-color: #000;
+            width: 375px; /* iPhone width */
+            height: 812px; /* iPhone height */
+            border-radius: 40px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .notch {
+            background-color: #000;
+            width: 210px;
+            height: 30px;
+            border-radius: 20px;
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1;
+        }
+
+        .screen {
+            background-color: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 30px;
+            padding: 15px;
+            box-sizing: border-box;
+            overflow-y: auto;
+            margin-top: 50px; /* Space for the notch */
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .search-bar select, .search-bar button {
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+
+        .search-bar button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .search-bar button:hover {
+            background-color: #0056b3;
+        }
+
+        .search-bar button:active {
+            transform: scale(0.95); /* Button shrink animation */
+        }
+
+        .results {
+            margin-top: 20px;
+        }
+
+        .result-item {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        .result-item h3 {
+            margin: 0 0 10px;
+            color: #007bff;
+            font-size: 16px;
+        }
+
+        .result-item p {
+            margin: 5px 0;
+            color: #555;
+            font-size: 14px;
+        }
+
+        .result-item a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .result-item a:hover {
+            text-decoration: underline;
+        }
+
+        /* Spinning cursor animation */
+        body.spinning-cursor {
+            cursor: wait; /* Change cursor to spinning wheel */
+        }
+    </style>
+</head>
+<body>
+    <div class="phone">
+        <div class="notch"></div>
+        <div class="screen">
+            <h1>Social Eateries, Pubs & Wine Farms Lookup</h1>
+            <div class="search-bar">
+                <select id="area">
+                    <option value="">Select Area</option>
+                    <option value="Sea Point">Sea Point</option>
+                    <option value="Blouberg">Blouberg</option>
+                    <option value="Durbanville">Durbanville</option>
+                    <option value="Cape Town">Cape Town</option>
+                    <option value="Stellenbosch">Stellenbosch</option>
+                    <option value="Paarl">Paarl</option>
+                    <option value="Somerset West">Somerset West</option>
+                    <option value="Gordons Bay">Gordons Bay</option>
+                    <option value="Franschhoek">Franschhoek</option>
+                </select>
+                <select id="type">
+                    <option value="">Select Type</option>
+                    <option value="Pub">Pub</option>
+                    <option value="Wine Farm">Wine Farm</option>
+                    <option value="Restaurant">Restaurant</option>
+                </select>
+                <button onclick="searchResults()">Search</button>
+            </div>
+            <div class="results" id="results">
+                <!-- Results will be displayed here -->
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Search functionality
+        function searchResults() {
+            // Add spinning cursor effect
+            document.body.classList.add("spinning-cursor");
+
+            // Simulate a delay for the search process
+            setTimeout(() => {
+                const area = document.getElementById("area").value;
+                const type = document.getElementById("type").value;
+                const resultsContainer = document.getElementById("results");
+
+                // Clear previous results
+                resultsContainer.innerHTML = "";
+
+                // Updated data for all social places
+                const data = [
+                    {
+                        name: "The Bungalow",
+                        area: "Sea Point",
+                        type: "Pub",
+                        contact: "021 123 4567",
+                        location: "3 Victoria Road, Sea Point",
+                        description: "A beachfront venue offering food, drinks, and group seating for up to 50 people."
+                    },
+                    {
+                        name: "Blue Peter Hotel",
+                        area: "Blouberg",
+                        type: "Pub",
+                        contact: "021 987 6543",
+                        location: "8 Popham Street, Bloubergstrand",
+                        description: "A relaxed pub with ocean views, perfect for groups of 20+ people."
+                    },
+                    {
+                        name: "Doodles Beachfront",
+                        area: "Blouberg",
+                        type: "Restaurant",
+                        contact: "021 554 1080",
+                        location: "110 Beach Boulevard, Bloubergstrand",
+                        description: "A casual beachfront restaurant with stunning views, offering food, drinks, and live music."
+                    },
+                    {
+                        name: "Hillcrest Quarry",
+                        area: "Durbanville",
+                        type: "Pub",
+                        contact: "021 456 7890",
+                        location: "Tygervalley Road, Durbanville",
+                        description: "An outdoor venue with live music, food, and drinks, ideal for large groups."
+                    },
+                    {
+                        name: "Durbanville Hills Winery",
+                        area: "Durbanville",
+                        type: "Wine Farm",
+                        contact: "021 558 1300",
+                        location: "Tygerberg Valley Road, Durbanville",
+                        description: "A wine farm offering tastings, scenic views, and group-friendly dining options."
+                    },
+                    {
+                        name: "The Grand Café & Beach",
+                        area: "Cape Town",
+                        type: "Restaurant",
+                        contact: "021 789 1234",
+                        location: "Granger Bay Road, Cape Town",
+                        description: "A stylish beachside café offering group seating and a wide selection of food and drinks."
+                    },
+                    {
+                        name: "Hudsons Burger Joint",
+                        area: "Stellenbosch",
+                        type: "Restaurant",
+                        contact: "021 654 3210",
+                        location: "Dorp Street, Stellenbosch",
+                        description: "A lively burger joint with craft beers and group-friendly seating."
+                    },
+                    {
+                        name: "Spier Wine Farm",
+                        area: "Stellenbosch",
+                        type: "Wine Farm",
+                        contact: "021 809 1100",
+                        location: "R310 Baden Powell Drive, Stellenbosch",
+                        description: "A renowned wine farm with tastings, farm-to-table dining, and scenic views."
+                    },
+                    {
+                        name: "Noop Restaurant",
+                        area: "Paarl",
+                        type: "Restaurant",
+                        contact: "021 863 3925",
+                        location: "127 Main Street, Paarl",
+                        description: "A fine dining restaurant with a cozy atmosphere, perfect for group gatherings with food and drinks."
+                    },
+                    {
+                        name: "Laborie Wine Estate",
+                        area: "Paarl",
+                        type: "Wine Farm",
+                        contact: "021 807 3390",
+                        location: "Main Road, Paarl",
+                        description: "A historic wine estate offering tastings, picnics, and fine dining."
+                    },
+                    {
+                        name: "The Farmhouse",
+                        area: "Somerset West",
+                        type: "Restaurant",
+                        contact: "021 852 6620",
+                        location: "Lourensford Road, Somerset West",
+                        description: "A family-friendly venue offering group seating, delicious meals, and a wide selection of beverages."
+                    },
+                    {
+                        name: "Vergelegen Wine Estate",
+                        area: "Somerset West",
+                        type: "Wine Farm",
+                        contact: "021 847 2100",
+                        location: "Lourensford Road, Somerset West",
+                        description: "A picturesque wine estate offering tastings, gardens, and fine dining."
+                    },
+                    {
+                        name: "Old Cape Café",
+                        area: "Gordons Bay",
+                        type: "Restaurant",
+                        contact: "021 856 2732",
+                        location: "Beach Road, Gordons Bay",
+                        description: "A cozy café offering great food, drinks, and a relaxed atmosphere for groups."
+                    },
+                    {
+                        name: "Boschendal Wine Estate",
+                        area: "Franschhoek",
+                        type: "Wine Farm",
+                        contact: "021 870 4200",
+                        location: "Pniel Road, Franschhoek",
+                        description: "A historic wine estate offering wine tastings, picnics, and fine dining."
+                    },
+                    {
+                        name: "La Petite Colombe",
+                        area: "Franschhoek",
+                        type: "Restaurant",
+                        contact: "021 202 3395",
+                        location: "Le Quartier Français, Franschhoek",
+                        description: "A fine dining restaurant offering exquisite meals and a group-friendly atmosphere."
+                    },
+                    {
+                        name: "Rickety Bridge Winery",
+                        area: "Franschhoek",
+                        type: "Wine Farm",
+                        contact: "021 876 2129",
+                        location: "R45 Main Road, Franschhoek",
+                        description: "A charming wine farm offering tastings, picnics, and a relaxed atmosphere."
+                    },
+                    {
+                        name: "The Fat Butcher",
+                        area: "Stellenbosch",
+                        type: "Restaurant",
+                        contact: "021 882 8705",
+                        location: "1 Drostdy Street, Stellenbosch",
+                        description: "A steakhouse offering premium cuts of meat and a cozy atmosphere for group dining."
+                    },
+                    {
+                        name: "De Waal Park Concerts",
+                        area: "Cape Town",
+                        type: "Live Music",
+                        contact: "N/A",
+                        location: "De Waal Park, Cape Town",
+                        description: "An outdoor venue hosting live music events with food stalls and a relaxed atmosphere."
+                    },
+                    {
+                        name: "Delheim Wine Estate",
+                        area: "Stellenbosch",
+                        type: "Wine Farm",
+                        contact: "021 888 4600",
+                        location: "Knorhoek Road, Stellenbosch",
+                        description: "A wine farm offering tastings, live music events, and delicious food pairings."
+                    }
+                ];
+
+                // Filter results based on area and type
+                const filteredResults = data.filter(item => {
+                    return (
+                        (area === "" || item.area === area) &&
+                        (type === "" || item.type === type)
+                    );
+                });
+
+                // Display results
+                if (filteredResults.length > 0) {
+                    filteredResults.forEach(item => {
+                        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(item.name)}`;
+                        const resultItem = document.createElement("div");
+                        resultItem.classList.add("result-item");
+                        resultItem.innerHTML = `
+                            <h3><a href="${googleSearchUrl}" target="_blank">${item.name}</a></h3>
+                            <p><strong>Type:</strong> ${item.type}</p>
+                            <p><strong>Contact:</strong> <a href="tel:${item.contact}">${item.contact}</a></p>
+                            <p><strong>Location:</strong> ${item.location}</p>
+                            <p><strong>Description:</strong> ${item.description}</p>
+                            <p><strong>Area:</strong> ${item.area}</p>
+                        `;
+                        resultsContainer.appendChild(resultItem);
+                    });
+                } else {
+                    resultsContainer.innerHTML = "<p>No results found. Please try a different area or type.</p>";
+                }
+
+                // Remove spinning cursor effect
+                document.body.classList.remove("spinning-cursor");
+            }, 1000); // Simulate a 1-second delay
+        }
+    </script>
+</body>
+</html>
