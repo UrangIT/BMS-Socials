@@ -6,8 +6,9 @@
     <title>BMS Socials</title>
     <style>
         body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Georgia', serif; /* Use a serif font for a retro look */
+            background-color: #fdf5c9; /* Yellowish background to mimic old paper */
+            color: #333; /* Dark text for contrast */
             margin: 0;
             padding: 0;
             display: flex;
@@ -21,12 +22,12 @@
         }
 
         .phone {
-            background-color: #000;
+            background-color: #fdf5c9; /* Match the yellowish background */
             width: 90%; /* Adjust width to fit smaller screens */
             max-width: 375px; /* Maintain iPhone width as the maximum */
             height: 90%; /* Adjust height to fit smaller screens */
             max-height: 812px; /* Maintain iPhone height as the maximum */
-            border-radius: 40px;
+            border: 2px solid #333; /* Add a dark border for a book-like appearance */
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
             display: flex;
             flex-direction: column;
@@ -37,33 +38,26 @@
         }
 
         .notch {
-            background-color: #000;
-            width: 20px;
-            height: 30px;
-            border-radius: 20px;
-            position: absolute;
-            top: 10px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: 1;
+            display: none; /* Remove the notch for a cleaner look */
         }
 
         .screen {
-            background-color: #fff;
+            background-color: #fdf5c9; /* Match the yellowish background */
             width: 100%;
             height: 100%;
-            border-radius: 30px;
+            border-radius: 0; /* Remove rounded corners for a book-like look */
             padding: 20px;
             box-sizing: border-box;
             overflow-y: auto; /* Enable scrolling for content overflow */
-            margin-top:1px; /* Space for the notch */
+            margin-top: 0; /* Remove space for the notch */
         }
 
         h1 {
             text-align: center;
-            color: #333;
-            font-size: 18px;
+            color: #000; /* Black text for the title */
+            font-size: 24px; /* Larger font for the title */
             margin-bottom: 20px;
+            text-transform: uppercase; /* Make the title uppercase for emphasis */
         }
 
         .search-bar {
@@ -73,24 +67,26 @@
             margin-bottom: 20px;
         }
 
-        .search-bar select, .search-bar button, .search-bar input {
+        .search-bar select, .search-bar button {
             padding: 10px;
             font-size: 14px;
-            border: 1px solid #ccc;
+            border: 1px solid #333; /* Dark border for inputs */
             border-radius: 5px;
             width: 100%;
+            background-color: #fff; /* White background for inputs */
+            color: #000; /* Black text for inputs */
         }
 
         .search-bar button {
-            background-color: #007bff;
-            color: white;
+            background-color: #333; /* Dark background for the button */
+            color: #fff; /* White text for the button */
             border: none;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
         .search-bar button:hover {
-            background-color: #0056b3;
+            background-color: #555; /* Slightly lighter background on hover */
         }
 
         .search-bar button:active {
@@ -102,32 +98,33 @@
         }
 
         .result-item {
-            background-color: #f9f9f9;
+            background-color: #f7f7f7; /* Subtle grey background for result items */
             border: 1px solid #ddd;
             border-radius: 5px;
             padding: 15px;
             margin-bottom: 15px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
         }
 
         .result-item h3 {
             margin: 0 0 10px;
-            color: #007bff;
+            color: #000; /* Black text for headings */
             font-size: 16px;
         }
 
         .result-item p {
             margin: 5px 0;
-            color: #555;
+            color: #333; /* Darker text for descriptions */
             font-size: 14px;
         }
 
         .result-item a {
-            color: #007bff;
-            text-decoration: none;
+            color: #007bff; /* Blue links */
+            text-decoration: underline; /* Underline links for emphasis */
         }
 
         .result-item a:hover {
-            text-decoration: underline;
+            text-decoration: none; /* Remove underline on hover */
         }
 
         /* Spinning cursor animation */
@@ -140,7 +137,7 @@
     <div class="phone">
         <div class="notch"></div>
         <div class="screen">
-            <img src="BMS1.jpg" alt="BMS Logo" style="display:block; margin-inline:  20px; width: 300px; height:fit-content; border-radius: 50px;" />
+            <img src="BMS1.jpg" alt="BMS Logo" style="display:block; margin: 0 auto; width: 100px; max-width: 200px; height: 100px; margin-bottom: 2px; border-radius: 50%;">
             <h1>BMS Socials</h1>
             <div class="search-bar">
                 <input type="text" id="search" placeholder="Search for a place..." />
@@ -973,4 +970,3 @@
     </script>
 </body>
 </html>
-``` 
