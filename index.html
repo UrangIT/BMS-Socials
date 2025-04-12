@@ -68,7 +68,7 @@
             margin-bottom: 20px;
         }
 
-        .search-bar select, .search-bar button {
+        .search-bar select, .search-bar button, .search-bar input {
             padding: 10px;
             font-size: 14px;
             border: 1px solid #ccc;
@@ -137,6 +137,7 @@
         <div class="screen">
             <h1>Social Eateries, Pubs & Wine Farms Lookup</h1>
             <div class="search-bar">
+                <input type="text" id="search" placeholder="Search for a place..." />
                 <select id="area">
                     <option value="">Select Area</option>
                     <option value="Sea Point">Sea Point</option>
@@ -165,206 +166,106 @@
 
     <script>
         // Search functionality
-        function searchResults() {
+        async function searchResults() {
             // Add spinning cursor effect
             document.body.classList.add("spinning-cursor");
 
-            // Simulate a delay for the search process
-            setTimeout(() => {
-                const area = document.getElementById("area").value;
-                const type = document.getElementById("type").value;
-                const resultsContainer = document.getElementById("results");
+            const area = document.getElementById("area").value;
+            const type = document.getElementById("type").value;
+            const searchQuery = document.getElementById("search").value;
+            const resultsContainer = document.getElementById("results");
 
-                // Clear previous results
-                resultsContainer.innerHTML = "";
+            // Clear previous results
+            resultsContainer.innerHTML = "";
 
-                // Updated data for all social places
-                const data = [
-                    {
-                        name: "The Bungalow",
-                        area: "Sea Point",
-                        type: "Pub",
-                        contact: "021 123 4567",
-                        location: "3 Victoria Road, Sea Point",
-                        description: "A beachfront venue offering food, drinks, and group seating for up to 50 people."
-                    },
-                    {
-                        name: "Blue Peter Hotel",
-                        area: "Blouberg",
-                        type: "Pub",
-                        contact: "021 987 6543",
-                        location: "8 Popham Street, Bloubergstrand",
-                        description: "A relaxed pub with ocean views, perfect for groups of 20+ people."
-                    },
-                    {
-                        name: "Doodles Beachfront",
-                        area: "Blouberg",
-                        type: "Restaurant",
-                        contact: "021 554 1080",
-                        location: "110 Beach Boulevard, Bloubergstrand",
-                        description: "A casual beachfront restaurant with stunning views, offering food, drinks, and live music."
-                    },
-                    {
-                        name: "Hillcrest Quarry",
-                        area: "Durbanville",
-                        type: "Pub",
-                        contact: "021 456 7890",
-                        location: "Tygervalley Road, Durbanville",
-                        description: "An outdoor venue with live music, food, and drinks, ideal for large groups."
-                    },
-                    {
-                        name: "Durbanville Hills Winery",
-                        area: "Durbanville",
-                        type: "Wine Farm",
-                        contact: "021 558 1300",
-                        location: "Tygerberg Valley Road, Durbanville",
-                        description: "A wine farm offering tastings, scenic views, and group-friendly dining options."
-                    },
-                    {
-                        name: "The Grand Café & Beach",
-                        area: "Cape Town",
-                        type: "Restaurant",
-                        contact: "021 789 1234",
-                        location: "Granger Bay Road, Cape Town",
-                        description: "A stylish beachside café offering group seating and a wide selection of food and drinks."
-                    },
-                    {
-                        name: "Hudsons Burger Joint",
-                        area: "Stellenbosch",
-                        type: "Restaurant",
-                        contact: "021 654 3210",
-                        location: "Dorp Street, Stellenbosch",
-                        description: "A lively burger joint with craft beers and group-friendly seating."
-                    },
-                    {
-                        name: "Spier Wine Farm",
-                        area: "Stellenbosch",
-                        type: "Wine Farm",
-                        contact: "021 809 1100",
-                        location: "R310 Baden Powell Drive, Stellenbosch",
-                        description: "A renowned wine farm with tastings, farm-to-table dining, and scenic views."
-                    },
-                    {
-                        name: "Noop Restaurant",
-                        area: "Paarl",
-                        type: "Restaurant",
-                        contact: "021 863 3925",
-                        location: "127 Main Street, Paarl",
-                        description: "A fine dining restaurant with a cozy atmosphere, perfect for group gatherings with food and drinks."
-                    },
-                    {
-                        name: "Laborie Wine Estate",
-                        area: "Paarl",
-                        type: "Wine Farm",
-                        contact: "021 807 3390",
-                        location: "Main Road, Paarl",
-                        description: "A historic wine estate offering tastings, picnics, and fine dining."
-                    },
-                    {
-                        name: "The Farmhouse",
-                        area: "Somerset West",
-                        type: "Restaurant",
-                        contact: "021 852 6620",
-                        location: "Lourensford Road, Somerset West",
-                        description: "A family-friendly venue offering group seating, delicious meals, and a wide selection of beverages."
-                    },
-                    {
-                        name: "Vergelegen Wine Estate",
-                        area: "Somerset West",
-                        type: "Wine Farm",
-                        contact: "021 847 2100",
-                        location: "Lourensford Road, Somerset West",
-                        description: "A picturesque wine estate offering tastings, gardens, and fine dining."
-                    },
-                    {
-                        name: "Old Cape Café",
-                        area: "Gordons Bay",
-                        type: "Restaurant",
-                        contact: "021 856 2732",
-                        location: "Beach Road, Gordons Bay",
-                        description: "A cozy café offering great food, drinks, and a relaxed atmosphere for groups."
-                    },
-                    {
-                        name: "Boschendal Wine Estate",
-                        area: "Franschhoek",
-                        type: "Wine Farm",
-                        contact: "021 870 4200",
-                        location: "Pniel Road, Franschhoek",
-                        description: "A historic wine estate offering wine tastings, picnics, and fine dining."
-                    },
-                    {
-                        name: "La Petite Colombe",
-                        area: "Franschhoek",
-                        type: "Restaurant",
-                        contact: "021 202 3395",
-                        location: "Le Quartier Français, Franschhoek",
-                        description: "A fine dining restaurant offering exquisite meals and a group-friendly atmosphere."
-                    },
-                    {
-                        name: "Rickety Bridge Winery",
-                        area: "Franschhoek",
-                        type: "Wine Farm",
-                        contact: "021 876 2129",
-                        location: "R45 Main Road, Franschhoek",
-                        description: "A charming wine farm offering tastings, picnics, and a relaxed atmosphere."
-                    },
-                    {
-                        name: "The Fat Butcher",
-                        area: "Stellenbosch",
-                        type: "Restaurant",
-                        contact: "021 882 8705",
-                        location: "1 Drostdy Street, Stellenbosch",
-                        description: "A steakhouse offering premium cuts of meat and a cozy atmosphere for group dining."
-                    },
-                    {
-                        name: "De Waal Park Concerts",
-                        area: "Cape Town",
-                        type: "Live Music",
-                        contact: "N/A",
-                        location: "De Waal Park, Cape Town",
-                        description: "An outdoor venue hosting live music events with food stalls and a relaxed atmosphere."
-                    },
-                    {
-                        name: "Delheim Wine Estate",
-                        area: "Stellenbosch",
-                        type: "Wine Farm",
-                        contact: "021 888 4600",
-                        location: "Knorhoek Road, Stellenbosch",
-                        description: "A wine farm offering tastings, live music events, and delicious food pairings."
-                    }
-                ];
-
-                // Filter results based on area and type
-                const filteredResults = data.filter(item => {
-                    return (
-                        (area === "" || item.area === area) &&
-                        (type === "" || item.type === type)
-                    );
-                });
-
-                // Display results
-                if (filteredResults.length > 0) {
-                    filteredResults.forEach(item => {
-                        const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(item.name)}`;
-                        const resultItem = document.createElement("div");
-                        resultItem.classList.add("result-item");
-                        resultItem.innerHTML = `
-                            <h3><a href="${googleSearchUrl}" target="_blank">${item.name}</a></h3>
-                            <p><strong>Type:</strong> ${item.type}</p>
-                            <p><strong>Contact:</strong> <a href="tel:${item.contact}">${item.contact}</a></p>
-                            <p><strong>Location:</strong> ${item.location}</p>
-                            <p><strong>Description:</strong> ${item.description}</p>
-                            <p><strong>Area:</strong> ${item.area}</p>
-                        `;
-                        resultsContainer.appendChild(resultItem);
-                    });
-                } else {
-                    resultsContainer.innerHTML = "<p>No results found. Please try a different area or type.</p>";
+            // Static data for predefined places
+            const data = [
+                {
+                    name: "The Bungalow",
+                    area: "Sea Point",
+                    type: "Pub",
+                    contact: "021 123 4567",
+                    location: "3 Victoria Road, Sea Point",
+                    description: "A beachfront venue offering food, drinks, and group seating for up to 50 people."
+                },
+                {
+                    name: "Blue Peter Hotel",
+                    area: "Blouberg",
+                    type: "Pub",
+                    contact: "021 987 6543",
+                    location: "8 Popham Street, Bloubergstrand",
+                    description: "A relaxed pub with ocean views, perfect for groups of 20+ people."
+                },
+                {
+                    name: "Doodles Beachfront",
+                    area: "Blouberg",
+                    type: "Restaurant",
+                    contact: "021 554 1080",
+                    location: "110 Beach Boulevard, Bloubergstrand",
+                    description: "A casual beachfront restaurant with stunning views, offering food, drinks, and live music."
                 }
+                // Add more static data as needed
+            ];
 
-                // Remove spinning cursor effect
-                document.body.classList.remove("spinning-cursor");
-            }, 1000); // Simulate a 1-second delay
+            // Filter static data based on area, type, or search query
+            const filteredResults = data.filter(item => {
+                return (
+                    (area === "" || item.area === area) &&
+                    (type === "" || item.type === type) &&
+                    (searchQuery === "" || item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+                );
+            });
+
+            // Display static results
+            if (filteredResults.length > 0) {
+                filteredResults.forEach(item => {
+                    const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(item.name)}`;
+                    const resultItem = document.createElement("div");
+                    resultItem.classList.add("result-item");
+                    resultItem.innerHTML = `
+                        <h3><a href="${googleSearchUrl}" target="_blank">${item.name}</a></h3>
+                        <p><strong>Type:</strong> ${item.type}</p>
+                        <p><strong>Contact:</strong> <a href="tel:${item.contact}">${item.contact}</a></p>
+                        <p><strong>Location:</strong> ${item.location}</p>
+                        <p><strong>Description:</strong> ${item.description}</p>
+                        <p><strong>Area:</strong> ${item.area}</p>
+                    `;
+                    resultsContainer.appendChild(resultItem);
+                });
+            }
+
+            // Fetch dynamic results from Google Places API
+            if (searchQuery !== "") {
+                const apiKey = "AIzaSyB_0FP8JR_HXGE9gePrTGyg9LtZIfoPhfA"; // Updated API key
+                const googleApiUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(searchQuery)}&key=${apiKey}`;
+
+                try {
+                    const response = await fetch(googleApiUrl);
+                    const googleData = await response.json();
+
+                    if (googleData.results && googleData.results.length > 0) {
+                        googleData.results.forEach(place => {
+                            const resultItem = document.createElement("div");
+                            resultItem.classList.add("result-item");
+                            resultItem.innerHTML = `
+                                <h3><a href="https://www.google.com/search?q=${encodeURIComponent(place.name)}" target="_blank">${place.name}</a></h3>
+                                <p><strong>Address:</strong> ${place.formatted_address || "N/A"}</p>
+                                <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
+                                <p><strong>Type:</strong> ${type || "N/A"}</p>
+                            `;
+                            resultsContainer.appendChild(resultItem);
+                        });
+                    } else {
+                        resultsContainer.innerHTML += "<p>No dynamic results found from Google. Please try a different search query.</p>";
+                    }
+                } catch (error) {
+                    console.error("Error fetching data from Google Places API:", error);
+                    resultsContainer.innerHTML += "<p>Failed to fetch dynamic results. Please try again later.</p>";
+                }
+            }
+
+            // Remove spinning cursor effect
+            document.body.classList.remove("spinning-cursor");
         }
     </script>
 </body>
