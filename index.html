@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Social Eateries, Pubs & Wine Farms Lookup</title>
+    <title>BMS Socials</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -48,10 +48,10 @@
             width: 100%;
             height: 100%;
             border-radius: 30px;
-            padding: 15px;
+            padding: 20px;
             box-sizing: border-box;
             overflow-y: auto;
-            margin-top: 50px; /* Space for the notch */
+            margin-top: 1px; /* Space for the notch */
         }
 
         h1 {
@@ -64,7 +64,7 @@
         .search-bar {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 14px;
             margin-bottom: 20px;
         }
 
@@ -135,7 +135,8 @@
     <div class="phone">
         <div class="notch"></div>
         <div class="screen">
-            <h1>Social Eateries, Pubs & Wine Farms Lookup</h1>
+            <img src="bms1.jpg" alt="BMS Logo" style="display: block; margin: 0 auto 20px; width: 100px; height: auto; border-radius: 10px;" />
+            <h1>BMS Socials</h1>
             <div class="search-bar">
                 <input type="text" id="search" placeholder="Search for a place..." />
                 <select id="area">
@@ -165,7 +166,6 @@
     </div>
 
     <script>
-        // Search functionality
         async function searchResults() {
             // Add spinning cursor effect
             document.body.classList.add("spinning-cursor");
@@ -180,6 +180,7 @@
 
             // Static data for predefined places
             const data = [
+                // Sea Point
                 {
                     name: "The Bungalow",
                     area: "Sea Point",
@@ -188,6 +189,79 @@
                     location: "3 Victoria Road, Sea Point",
                     description: "A beachfront venue offering food, drinks, and group seating for up to 50 people."
                 },
+                {
+                    name: "La Perla",
+                    area: "Sea Point",
+                    type: "Restaurant",
+                    contact: "021 439 9538",
+                    location: "Beach Road, Sea Point",
+                    description: "An Italian restaurant offering seafood and a cozy atmosphere."
+                },
+                {
+                    name: "Mojo Market",
+                    area: "Sea Point",
+                    type: "Restaurant",
+                    contact: "021 123 7890",
+                    location: "30 Regent Road, Sea Point",
+                    description: "A vibrant market with food stalls, live music, and a great vibe."
+                },
+                {
+                    name: "Bootlegger Coffee Company",
+                    area: "Sea Point",
+                    type: "Cafe",
+                    contact: "021 434 0060",
+                    location: "37 Regent Road, Sea Point",
+                    description: "A trendy café offering specialty coffee, breakfast, and light meals."
+                },
+                {
+                    name: "NV-80 Grill & Bar",
+                    area: "Sea Point",
+                    type: "Restaurant",
+                    contact: "021 439 7112",
+                    location: "76 Regent Road, Sea Point",
+                    description: "A stylish grill and bar offering premium steaks, seafood, and cocktails."
+                },
+                {
+                    name: "Scheckter's RAW",
+                    area: "Sea Point",
+                    type: "Restaurant",
+                    contact: "021 434 1364",
+                    location: "98 Regent Road, Sea Point",
+                    description: "A health-conscious eatery offering organic, plant-based meals and smoothies."
+                },
+                {
+                    name: "The Winchester Boutique Hotel",
+                    area: "Sea Point",
+                    type: "Restaurant",
+                    contact: "021 434 2351",
+                    location: "221 Beach Road, Sea Point",
+                    description: "A luxurious hotel with a restaurant offering fine dining and ocean views."
+                },
+                {
+                    name: "Kleinsky's Delicatessen",
+                    area: "Sea Point",
+                    type: "Cafe",
+                    contact: "021 433 2871",
+                    location: "92 Regent Road, Sea Point",
+                    description: "A New York-style deli offering bagels, sandwiches, and specialty coffee."
+                },
+                {
+                    name: "Mykonos Taverna",
+                    area: "Sea Point",
+                    type: "Restaurant",
+                    contact: "021 439 2106",
+                    location: "343 Main Road, Sea Point",
+                    description: "A Greek restaurant offering authentic Mediterranean dishes in a cozy setting."
+                },
+                {
+                    name: "Posticino",
+                    area: "Sea Point",
+                    type: "Restaurant",
+                    contact: "021 439 4014",
+                    location: "323 Main Road, Sea Point",
+                    description: "A family-friendly Italian restaurant offering pizza, pasta, and traditional dishes."
+                },
+                // Blouberg
                 {
                     name: "Blue Peter Hotel",
                     area: "Blouberg",
@@ -203,8 +277,654 @@
                     contact: "021 554 1080",
                     location: "110 Beach Boulevard, Bloubergstrand",
                     description: "A casual beachfront restaurant with stunning views, offering food, drinks, and live music."
+                },
+                {
+                    name: "Ons Huisie",
+                    area: "Blouberg",
+                    type: "Restaurant",
+                    contact: "021 554 1553",
+                    location: "18 Generaal Jansens Road, Bloubergstrand",
+                    description: "A family-friendly restaurant offering traditional South African cuisine."
+                },
+                {
+                    name: "Eden Café",
+                    area: "Blouberg",
+                    type: "Cafe",
+                    contact: "021 554 1234",
+                    location: "Eden on the Bay, Bloubergstrand",
+                    description: "A cozy café offering coffee, pastries, and light meals with ocean views."
+                },
+                {
+                    name: "Catch 22 Beachside Grille & Bar",
+                    area: "Blouberg",
+                    type: "Restaurant",
+                    contact: "021 554 5000",
+                    location: "Portico Building, Bloubergstrand",
+                    description: "A seafood and grill restaurant with a relaxed atmosphere and ocean views."
+                },
+                {
+                    name: "The Indian Chapter",
+                    area: "Blouberg",
+                    type: "Restaurant",
+                    contact: "021 556 8220",
+                    location: "9 Marine Circle, Bloubergstrand",
+                    description: "An authentic Indian restaurant offering a variety of curries and traditional dishes."
+                },
+                {
+                    name: "Jerry's Burger Bar",
+                    area: "Blouberg",
+                    type: "Restaurant",
+                    contact: "021 554 5556",
+                    location: "Eden on the Bay, Bloubergstrand",
+                    description: "A popular burger joint offering gourmet burgers, craft beers, and a lively atmosphere."
+                },
+                {
+                    name: "Blowfish Restaurant",
+                    area: "Blouberg",
+                    type: "Restaurant",
+                    contact: "021 556 5464",
+                    location: "Dolphin Beach Hotel, Bloubergstrand",
+                    description: "A seafood restaurant offering sushi, fresh fish, and stunning ocean views."
+                },
+                {
+                    name: "Primi Piatti",
+                    area: "Blouberg",
+                    type: "Restaurant",
+                    contact: "021 554 5055",
+                    location: "Eden on the Bay, Bloubergstrand",
+                    description: "An Italian-inspired restaurant offering pizza, pasta, and cocktails with a beachfront view."
+                },
+                {
+                    name: "The Royal Oak Pub",
+                    area: "Blouberg",
+                    type: "Pub",
+                    contact: "021 554 7890",
+                    location: "Marine Circle, Bloubergstrand",
+                    description: "A traditional pub offering craft beers, hearty meals, and a friendly atmosphere."
+                },
+                // Durbanville
+                {
+                    name: "Hillcrest Quarry",
+                    area: "Durbanville",
+                    type: "Pub",
+                    contact: "021 456 7890",
+                    location: "Tygervalley Road, Durbanville",
+                    description: "An outdoor venue with live music, food, and drinks, ideal for large groups."
+                },
+                {
+                    name: "Durbanville Hills Winery",
+                    area: "Durbanville",
+                    type: "Wine Farm",
+                    contact: "021 558 1300",
+                    location: "Tygerberg Valley Road, Durbanville",
+                    description: "A wine farm offering tastings, scenic views, and group-friendly dining options."
+                },
+                {
+                    name: "Rust en Vrede Restaurant",
+                    area: "Durbanville",
+                    type: "Restaurant",
+                    contact: "021 976 4691",
+                    location: "Polkadraai Road, Durbanville",
+                    description: "A fine dining restaurant offering exquisite meals and wine pairings."
+                },
+                {
+                    name: "The Olive Bistro",
+                    area: "Durbanville",
+                    type: "Restaurant",
+                    contact: "021 975 0303",
+                    location: "12 Oxford Street, Durbanville",
+                    description: "A cozy bistro offering Mediterranean-inspired dishes and a relaxed atmosphere."
+                },
+                {
+                    name: "Meerendal Wine Estate",
+                    area: "Durbanville",
+                    type: "Wine Farm",
+                    contact: "021 975 1655",
+                    location: "Vissershok Road, Durbanville",
+                    description: "A historic wine estate offering tastings, fine dining, and scenic views."
+                },
+                {
+                    name: "The Rusty Oak Bistro",
+                    area: "Durbanville",
+                    type: "Restaurant",
+                    contact: "021 975 5677",
+                    location: "Protea Hotel, Durbanville",
+                    description: "A family-friendly bistro offering hearty meals and a relaxed dining experience."
+                },
+                {
+                    name: "Signal Gun Wines",
+                    area: "Durbanville",
+                    type: "Wine Farm",
+                    contact: "021 976 7343",
+                    location: "Hooggelegen Road, Durbanville",
+                    description: "A boutique wine farm offering tastings, craft beer, and a restaurant with stunning views."
+                },
+                {
+                    name: "Cassia Restaurant",
+                    area: "Durbanville",
+                    type: "Restaurant",
+                    contact: "021 976 0640",
+                    location: "Nitida Wine Farm, Durbanville",
+                    description: "A contemporary restaurant offering seasonal dishes and wine pairings."
+                },
+                {
+                    name: "Nitida Wine Farm",
+                    area: "Durbanville",
+                    type: "Wine Farm",
+                    contact: "021 976 1467",
+                    location: "Tygerberg Valley Road, Durbanville",
+                    description: "A boutique wine farm offering tastings, picnics, and a tranquil atmosphere."
+                },
+                {
+                    name: "The Table at De Meye",
+                    area: "Durbanville",
+                    type: "Restaurant",
+                    contact: "021 975 8505",
+                    location: "De Meye Wine Estate, Durbanville",
+                    description: "A farm-to-table restaurant offering seasonal dishes in a rustic setting."
+                },
+                // Cape Town
+                {
+                    name: "The Grand Café & Beach",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 789 1234",
+                    location: "Granger Bay Road, Cape Town",
+                    description: "A stylish beachside café offering group seating and a wide selection of food and drinks."
+                },
+                {
+                    name: "The Pot Luck Club",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 447 0804",
+                    location: "The Old Biscuit Mill, Woodstock, Cape Town",
+                    description: "A trendy restaurant offering small plates and a vibrant atmosphere."
+                },
+                {
+                    name: "De Waal Park Concerts",
+                    area: "Cape Town",
+                    type: "Live Music",
+                    contact: "N/A",
+                    location: "De Waal Park, Cape Town",
+                    description: "An outdoor venue hosting live music events with food stalls and a relaxed atmosphere."
+                },
+                {
+                    name: "Kloof Street House",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 423 4413",
+                    location: "30 Kloof Street, Gardens, Cape Town",
+                    description: "A charming Victorian house offering a unique dining experience with a cozy ambiance."
+                },
+                {
+                    name: "The Test Kitchen",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 447 2337",
+                    location: "The Old Biscuit Mill, Woodstock, Cape Town",
+                    description: "A world-renowned fine dining restaurant offering innovative dishes and a luxurious atmosphere."
+                },
+                {
+                    name: "The Gin Bar",
+                    area: "Cape Town",
+                    type: "Pub",
+                    contact: "021 423 2050",
+                    location: "64A Wale Street, Cape Town",
+                    description: "A hidden gem offering a wide selection of gin cocktails in a cozy courtyard setting."
+                },
+                {
+                    name: "The Silo Rooftop",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 670 0500",
+                    location: "The Silo Hotel, V&A Waterfront, Cape Town",
+                    description: "A rooftop restaurant offering stunning views, light meals, and cocktails."
+                },
+                {
+                    name: "The Bungalow Clifton",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 438 2018",
+                    location: "3 Victoria Road, Clifton, Cape Town",
+                    description: "A beachfront restaurant offering seafood, cocktails, and breathtaking ocean views."
+                },
+                {
+                    name: "The Athletic Club & Social",
+                    area: "Cape Town",
+                    type: "Pub",
+                    contact: "021 012 5331",
+                    location: "35 Buitengracht Street, Cape Town",
+                    description: "A stylish bar and restaurant offering live music, cocktails, and Mediterranean-inspired dishes."
+                },
+                {
+                    name: "The Company's Garden Restaurant",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 423 2919",
+                    location: "15 Queen Victoria Street, Cape Town",
+                    description: "A family-friendly restaurant located in the historic Company's Garden, offering light meals and refreshments."
+                },
+                {
+                    name: "The Stack",
+                    area: "Cape Town",
+                    type: "Restaurant",
+                    contact: "021 286 0187",
+                    location: "7 Weltevreden Street, Gardens, Cape Town",
+                    description: "A brasserie and bar offering French-inspired cuisine and a vibrant atmosphere."
+                },
+                // Stellenbosch
+                {
+                    name: "Hudsons Burger Joint",
+                    area: "Stellenbosch",
+                    type: "Restaurant",
+                    contact: "021 654 3210",
+                    location: "Dorp Street, Stellenbosch",
+                    description: "A lively burger joint with craft beers and group-friendly seating."
+                },
+                {
+                    name: "Spier Wine Farm",
+                    area: "Stellenbosch",
+                    type: "Wine Farm",
+                    contact: "021 809 1100",
+                    location: "R310 Baden Powell Drive, Stellenbosch",
+                    description: "A renowned wine farm with tastings, farm-to-table dining, and scenic views."
+                },
+                {
+                    name: "Delheim Wine Estate",
+                    area: "Stellenbosch",
+                    type: "Wine Farm",
+                    contact: "021 888 4600",
+                    location: "Knorhoek Road, Stellenbosch",
+                    description: "A wine farm offering tastings, live music events, and delicious food pairings."
+                },
+                {
+                    name: "Tokara Restaurant",
+                    area: "Stellenbosch",
+                    type: "Restaurant",
+                    contact: "021 885 2550",
+                    location: "Helshoogte Road, Stellenbosch",
+                    description: "A fine dining restaurant offering contemporary cuisine with stunning vineyard views."
+                },
+                {
+                    name: "Lanzerac Wine Estate",
+                    area: "Stellenbosch",
+                    type: "Wine Farm",
+                    contact: "021 887 1132",
+                    location: "Lanzerac Road, Stellenbosch",
+                    description: "A historic wine estate offering tastings, a spa, and luxurious accommodations."
+                },
+                {
+                    name: "The Fat Butcher",
+                    area: "Stellenbosch",
+                    type: "Restaurant",
+                    contact: "021 882 8705",
+                    location: "1 Drostdy Street, Stellenbosch",
+                    description: "A steakhouse offering premium cuts of meat and a cozy atmosphere for group dining."
+                },
+                {
+                    name: "Rust en Vrede Wine Estate",
+                    area: "Stellenbosch",
+                    type: "Wine Farm",
+                    contact: "021 881 3881",
+                    location: "Annandale Road, Stellenbosch",
+                    description: "A boutique wine estate offering tastings and a fine dining restaurant."
+                },
+                {
+                    name: "Delaire Graff Estate",
+                    area: "Stellenbosch",
+                    type: "Wine Farm",
+                    contact: "021 885 8160",
+                    location: "Helshoogte Pass, Stellenbosch",
+                    description: "A luxury wine estate offering tastings, art galleries, and fine dining."
+                },
+                {
+                    name: "Stellenbosch Kitchen",
+                    area: "Stellenbosch",
+                    type: "Restaurant",
+                    contact: "021 883 2893",
+                    location: "Andringa Street, Stellenbosch",
+                    description: "A cozy restaurant offering South African-inspired dishes with a modern twist."
+                },
+                {
+                    name: "Jordan Wine Estate",
+                    area: "Stellenbosch",
+                    type: "Wine Farm",
+                    contact: "021 881 3441",
+                    location: "Stellenbosch Kloof Road, Stellenbosch",
+                    description: "A wine estate offering tastings, a bakery, and a fine dining restaurant."
+                },
+                {
+                    name: "Overture Restaurant",
+                    area: "Stellenbosch",
+                    type: "Restaurant",
+                    contact: "021 880 2721",
+                    location: "Hidden Valley Wines, Stellenbosch",
+                    description: "A fine dining restaurant offering seasonal dishes and panoramic views of the valley."
+                },
+                // Paarl
+                {
+                    name: "Noop Restaurant",
+                    area: "Paarl",
+                    type: "Restaurant",
+                    contact: "021 863 3925",
+                    location: "127 Main Street, Paarl",
+                    description: "A fine dining restaurant with a cozy atmosphere, perfect for group gatherings with food and drinks."
+                },
+                {
+                    name: "Laborie Wine Estate",
+                    area: "Paarl",
+                    type: "Wine Farm",
+                    contact: "021 807 3390",
+                    location: "Main Road, Paarl",
+                    description: "A historic wine estate offering tastings, picnics, and fine dining."
+                },
+                {
+                    name: "Spice Route Destination",
+                    area: "Paarl",
+                    type: "Wine Farm",
+                    contact: "021 863 5200",
+                    location: "Suid-Agter-Paarl Road, Paarl",
+                    description: "A unique destination offering wine tastings, craft beer, chocolate, and artisanal food."
+                },
+                {
+                    name: "Rhebokskloof Wine Estate",
+                    area: "Paarl",
+                    type: "Wine Farm",
+                    contact: "021 869 8386",
+                    location: "Noorder Agter-Paarl Road, Paarl",
+                    description: "A scenic wine estate offering tastings, picnics, and outdoor activities."
+                },
+                {
+                    name: "The Hussar Grill",
+                    area: "Paarl",
+                    type: "Restaurant",
+                    contact: "021 863 0466",
+                    location: "57 Main Street, Paarl",
+                    description: "A premium steakhouse offering a variety of grilled dishes and a cozy dining experience."
+                },
+                {
+                    name: "Fairview Wine and Cheese",
+                    area: "Paarl",
+                    type: "Wine Farm",
+                    contact: "021 863 2450",
+                    location: "Suid-Agter-Paarl Road, Paarl",
+                    description: "A popular wine farm offering tastings, cheese pairings, and a farm-to-table restaurant."
+                },
+                {
+                    name: "Blacksmith's Kitchen",
+                    area: "Paarl",
+                    type: "Restaurant",
+                    contact: "021 863 3555",
+                    location: "Main Road, Paarl",
+                    description: "A charming restaurant offering wood-fired pizzas, hearty meals, and a relaxed atmosphere."
+                },
+                {
+                    name: "Pearl Valley Golf Estate",
+                    area: "Paarl",
+                    type: "Restaurant",
+                    contact: "021 867 8000",
+                    location: "R301 Wemmershoek Road, Paarl",
+                    description: "A luxurious estate offering fine dining, golf, and scenic views."
+                },
+                {
+                    name: "Under Oaks Pizzeria",
+                    area: "Paarl",
+                    type: "Restaurant",
+                    contact: "021 869 8535",
+                    location: "Under Oaks Wine Estate, Paarl",
+                    description: "A cozy pizzeria offering wood-fired pizzas and a relaxed dining experience."
+                },
+                {
+                    name: "Glen Carlou Vineyards",
+                    area: "Paarl",
+                    type: "Wine Farm",
+                    contact: "021 875 5528",
+                    location: "Simondium Road, Paarl",
+                    description: "A modern wine farm offering tastings, art exhibitions, and a fine dining restaurant."
+                },
+                // Somerset West
+                {
+                    name: "Vergelegen Wine Estate",
+                    area: "Somerset West",
+                    type: "Wine Farm",
+                    contact: "021 847 2100",
+                    location: "Lourensford Road, Somerset West",
+                    description: "A picturesque wine estate offering tastings, gardens, and fine dining."
+                },
+                {
+                    name: "Lourensford Wine Estate",
+                    area: "Somerset West",
+                    type: "Wine Farm",
+                    contact: "021 847 2333",
+                    location: "Lourensford Road, Somerset West",
+                    description: "A historic wine estate offering tastings, a market, and outdoor activities."
+                },
+                {
+                    name: "The Farmhouse",
+                    area: "Somerset West",
+                    type: "Restaurant",
+                    contact: "021 852 6620",
+                    location: "Lourensford Road, Somerset West",
+                    description: "A family-friendly venue offering group seating, delicious meals, and a wide selection of beverages."
+                },
+                {
+                    name: "Waterkloof Wine Estate",
+                    area: "Somerset West",
+                    type: "Wine Farm",
+                    contact: "021 858 1292",
+                    location: "Sir Lowry's Pass Road, Somerset West",
+                    description: "A modern wine estate offering biodynamic wines, tastings, and a fine dining restaurant."
+                },
+                {
+                    name: "Camphors at Vergelegen",
+                    area: "Somerset West",
+                    type: "Restaurant",
+                    contact: "021 847 1346",
+                    location: "Vergelegen Wine Estate, Somerset West",
+                    description: "A fine dining restaurant offering seasonal dishes and wine pairings in a tranquil setting."
+                },
+                {
+                    name: "The Stables at Vergelegen",
+                    area: "Somerset West",
+                    type: "Restaurant",
+                    contact: "021 847 2156",
+                    location: "Vergelegen Wine Estate, Somerset West",
+                    description: "A casual restaurant offering light meals and stunning views of the estate."
+                },
+                {
+                    name: "Erinvale Estate Hotel & Spa",
+                    area: "Somerset West",
+                    type: "Restaurant",
+                    contact: "021 847 1160",
+                    location: "Lourensford Road, Somerset West",
+                    description: "A luxurious hotel with a restaurant offering fine dining and a relaxing atmosphere."
+                },
+                {
+                    name: "Idiom Wines",
+                    area: "Somerset West",
+                    type: "Wine Farm",
+                    contact: "021 858 1088",
+                    location: "Sir Lowry's Pass Road, Somerset West",
+                    description: "A wine estate offering tastings, Italian-inspired cuisine, and panoramic views."
+                },
+                {
+                    name: "Oak Valley Estate",
+                    area: "Somerset West",
+                    type: "Wine Farm",
+                    contact: "021 859 2510",
+                    location: "Elgin Valley, Somerset West",
+                    description: "A wine estate offering tastings, mountain biking trails, and a farm-to-table restaurant."
+                },
+                {
+                    name: "Steffanie's Place",
+                    area: "Somerset West",
+                    type: "Restaurant",
+                    contact: "021 852 7584",
+                    location: "113 Irene Avenue, Somerset West",
+                    description: "A charming restaurant offering Mediterranean-inspired dishes and scenic views."
+                },
+                // Gordons Bay
+                {
+                    name: "The Thirsty Oyster Tavern",
+                    area: "Gordons Bay",
+                    type: "Pub",
+                    contact: "021 856 4457",
+                    location: "Harbour Island, Gordons Bay",
+                    description: "A lively pub offering seafood, drinks, and live music with a harbor view."
+                },
+                {
+                    name: "Zest Restaurant",
+                    area: "Gordons Bay",
+                    type: "Restaurant",
+                    contact: "021 200 2605",
+                    location: "Beach Road, Gordons Bay",
+                    description: "A beachfront restaurant offering contemporary cuisine and stunning ocean views."
+                },
+                {
+                    name: "Old Cape Café",
+                    area: "Gordons Bay",
+                    type: "Cafe",
+                    contact: "021 856 2737",
+                    location: "Beach Road, Gordons Bay",
+                    description: "A cozy café offering coffee, breakfast, and light meals with a relaxed atmosphere."
+                },
+                {
+                    name: "Bertie's Moorings",
+                    area: "Gordons Bay",
+                    type: "Pub",
+                    contact: "021 856 3343",
+                    location: "Harbour Island, Gordons Bay",
+                    description: "A waterside pub offering live music, hearty meals, and a wide selection of drinks."
+                },
+                {
+                    name: "Tallas Tavern",
+                    area: "Gordons Bay",
+                    type: "Pub",
+                    contact: "021 856 3513",
+                    location: "Beach Road, Gordons Bay",
+                    description: "A friendly tavern offering pub-style meals, drinks, and a welcoming atmosphere."
+                },
+                {
+                    name: "The Boat House",
+                    area: "Gordons Bay",
+                    type: "Restaurant",
+                    contact: "021 856 2137",
+                    location: "Beach Road, Gordons Bay",
+                    description: "A seafood restaurant offering fresh fish, sushi, and ocean views."
+                },
+                {
+                    name: "Krystal Beach Hotel Restaurant",
+                    area: "Gordons Bay",
+                    type: "Restaurant",
+                    contact: "021 840 7500",
+                    location: "Breakwater Lane, Gordons Bay",
+                    description: "A hotel restaurant offering fine dining, cocktails, and scenic views of the marina."
+                },
+                {
+                    name: "Ooskus Fisheries",
+                    area: "Gordons Bay",
+                    type: "Restaurant",
+                    contact: "021 856 1337",
+                    location: "Beach Road, Gordons Bay",
+                    description: "A local favorite offering fresh fish and chips in a casual setting."
+                },
+                {
+                    name: "The Natural Way Café",
+                    area: "Gordons Bay",
+                    type: "Cafe",
+                    contact: "021 856 2500",
+                    location: "Beach Road, Gordons Bay",
+                    description: "A health-conscious café offering smoothies, salads, and organic meals."
+                },
+                {
+                    name: "Harbour Lights Restaurant",
+                    area: "Gordons Bay",
+                    type: "Restaurant",
+                    contact: "021 856 1830",
+                    location: "Harbour Island, Gordons Bay",
+                    description: "A fine dining restaurant offering seafood, steaks, and panoramic views of the harbor."
+                },
+                // Franschhoek
+                {
+                    name: "La Petite Colombe",
+                    area: "Franschhoek",
+                    type: "Restaurant",
+                    contact: "021 202 3395",
+                    location: "Le Quartier Français, Franschhoek",
+                    description: "A fine dining restaurant offering contemporary cuisine and an elegant atmosphere."
+                },
+                {
+                    name: "Grande Provence Heritage Wine Estate",
+                    area: "Franschhoek",
+                    type: "Wine Farm",
+                    contact: "021 876 8600",
+                    location: "Main Road, Franschhoek",
+                    description: "A historic wine estate offering tastings, art galleries, and fine dining."
+                },
+                {
+                    name: "The French Connection Bistro",
+                    area: "Franschhoek",
+                    type: "Restaurant",
+                    contact: "021 876 4056",
+                    location: "Huguenot Road, Franschhoek",
+                    description: "A casual bistro offering French-inspired dishes and a relaxed dining experience."
+                },
+                {
+                    name: "Haute Cabrière Wine Estate",
+                    area: "Franschhoek",
+                    type: "Wine Farm",
+                    contact: "021 876 8500",
+                    location: "Lambrechts Road, Franschhoek",
+                    description: "A wine estate offering tastings, cellar tours, and a restaurant with stunning views."
+                },
+                {
+                    name: "Le Bon Vivant",
+                    area: "Franschhoek",
+                    type: "Restaurant",
+                    contact: "021 876 2717",
+                    location: "La Rochelle Street, Franschhoek",
+                    description: "A gourmet restaurant offering innovative dishes and a cozy atmosphere."
+                },
+                {
+                    name: "Mont Rochelle Hotel & Vineyard",
+                    area: "Franschhoek",
+                    type: "Wine Farm",
+                    contact: "021 876 2770",
+                    location: "Dassenberg Road, Franschhoek",
+                    description: "A luxury hotel and vineyard offering tastings, fine dining, and scenic views."
+                },
+                {
+                    name: "Reuben's Restaurant & Bar",
+                    area: "Franschhoek",
+                    type: "Restaurant",
+                    contact: "021 876 3772",
+                    location: "Main Road, Franschhoek",
+                    description: "A renowned restaurant offering South African-inspired dishes and a vibrant atmosphere."
+                },
+                {
+                    name: "La Petite Ferme",
+                    area: "Franschhoek",
+                    type: "Restaurant",
+                    contact: "021 876 3016",
+                    location: "Franschhoek Pass Road, Franschhoek",
+                    description: "A boutique wine estate and restaurant offering seasonal dishes and breathtaking views."
+                },
+                {
+                    name: "Rickety Bridge Winery",
+                    area: "Franschhoek",
+                    type: "Wine Farm",
+                    contact: "021 876 2129",
+                    location: "R45 Main Road, Franschhoek",
+                    description: "A wine estate offering tastings, picnics, and a relaxed atmosphere."
+                },
+                {
+                    name: "The Tasting Room at Le Quartier Français",
+                    area: "Franschhoek",
+                    type: "Restaurant",
+                    contact: "021 876 2151",
+                    location: "Le Quartier Français, Franschhoek",
+                    description: "A world-class restaurant offering innovative tasting menus and an intimate setting."
                 }
-                // Add more static data as needed
             ];
 
             // Filter static data based on area, type, or search query
@@ -216,9 +936,12 @@
                 );
             });
 
+            // Limit results to 10 per area per category
+            const limitedResults = filteredResults.slice(0, 10);
+
             // Display static results
-            if (filteredResults.length > 0) {
-                filteredResults.forEach(item => {
+            if (limitedResults.length > 0) {
+                limitedResults.forEach(item => {
                     const googleSearchUrl = `https://www.google.com/search?q=${encodeURIComponent(item.name)}`;
                     const resultItem = document.createElement("div");
                     resultItem.classList.add("result-item");
@@ -232,36 +955,8 @@
                     `;
                     resultsContainer.appendChild(resultItem);
                 });
-            }
-
-            // Fetch dynamic results from Google Places API
-            if (searchQuery !== "") {
-                const apiKey = "AIzaSyB_0FP8JR_HXGE9gePrTGyg9LtZIfoPhfA"; // Updated API key
-                const googleApiUrl = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(searchQuery)}&key=${apiKey}`;
-
-                try {
-                    const response = await fetch(googleApiUrl);
-                    const googleData = await response.json();
-
-                    if (googleData.results && googleData.results.length > 0) {
-                        googleData.results.forEach(place => {
-                            const resultItem = document.createElement("div");
-                            resultItem.classList.add("result-item");
-                            resultItem.innerHTML = `
-                                <h3><a href="https://www.google.com/search?q=${encodeURIComponent(place.name)}" target="_blank">${place.name}</a></h3>
-                                <p><strong>Address:</strong> ${place.formatted_address || "N/A"}</p>
-                                <p><strong>Rating:</strong> ${place.rating || "N/A"}</p>
-                                <p><strong>Type:</strong> ${type || "N/A"}</p>
-                            `;
-                            resultsContainer.appendChild(resultItem);
-                        });
-                    } else {
-                        resultsContainer.innerHTML += "<p>No dynamic results found from Google. Please try a different search query.</p>";
-                    }
-                } catch (error) {
-                    console.error("Error fetching data from Google Places API:", error);
-                    resultsContainer.innerHTML += "<p>Failed to fetch dynamic results. Please try again later.</p>";
-                }
+            } else {
+                resultsContainer.innerHTML = "<p>No results found. Please try a different area or type.</p>";
             }
 
             // Remove spinning cursor effect
@@ -270,3 +965,4 @@
     </script>
 </body>
 </html>
+``` 
